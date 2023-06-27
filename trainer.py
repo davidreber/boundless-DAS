@@ -67,7 +67,8 @@ class Aligner(object):
             wandb.config.update(args)
     
     def save_model(self, output_dir, model_name):
-        if self.n_gpu > 1:
+        # if self.n_gpu > 1:
+        if False:
             torch.save({
                 'rotate_layer': self.model.module.model.rotate_layer.state_dict(),
                 'intervention_boundaries': self.model.module.model.intervention_boundaries,
