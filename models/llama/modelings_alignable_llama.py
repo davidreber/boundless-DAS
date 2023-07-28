@@ -251,6 +251,7 @@ class AlignableLlamaModel(LlamaModel):
                     
                     rotated_hidden_states = (1. - boundary_mask)*rotated_hidden_states + \
                         boundary_mask*source_hidden_states
+                    #^^ DAVID Note: this is where the (distributed) interchange intervention occurs
                     
                 # rotate back + suture
                 reversed_hidden_states = self.inverse_rotate_layer(rotated_hidden_states)
